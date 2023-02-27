@@ -1,123 +1,132 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication8;
 
-package modelo;
-
-import java.awt.Image;
-import java.io.FileInputStream;
-import java.sql.Date;
-
-
+/**
+ *
+ * @author USUARIO
+ */
 public class Persona {
-    private String idPersona;
-    private String nombre;
-    private String apellido;
-    private String sexo;
-    private Date fechaDeNacimiento;
-    private String telefono;
-    private double sueldo;
-    private int cupo;
-    private Image foto;
-    private int largo;
-    private FileInputStream imagen;
+    private int per_id;
+    private String per_ced;
+    private String per_nombre;
+    private String per_apellido1;
+    private String per_apellido2;
+    private String per_correo;
+    private int per_persona;
+
     public Persona() {
     }
 
-    public Persona(String idPersona, String nombre, String apellido, String sexo, Date fechaDeNacimiento, String telefono, double sueldo, int cupo) {
-        this.idPersona = idPersona;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.sexo = sexo;
-        this.fechaDeNacimiento = fechaDeNacimiento;
-        this.telefono = telefono;
-        this.sueldo = sueldo;
-        this.cupo = cupo;
+    public Persona(int per_id, String per_ced, String per_nombre, String per_apellido1, String per_apellido2, String per_correo, int per_persona) {
+        this.per_id = per_id;
+        this.per_ced = per_ced;
+        this.per_nombre = per_nombre;
+        this.per_apellido1 = per_apellido1;
+        this.per_apellido2 = per_apellido2;
+        this.per_correo = per_correo;
+        this.per_persona = per_persona;
     }
 
-    public String getIdPersona() {
-        return idPersona;
+    /**
+     * @return the per_id
+     */
+    public int getPer_id() {
+        return per_id;
     }
 
-    public void setIdPersona(String idPersona) {
-        this.idPersona = idPersona;
+    /**
+     * @param per_id the per_id to set
+     */
+    public void setPer_id(int per_id) {
+        this.per_id = per_id;
     }
 
-    public String getNombre() {
-        return nombre;
+    /**
+     * @return the per_ced
+     */
+    public String getPer_ced() {
+        return per_ced;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    /**
+     * @param per_ced the per_ced to set
+     */
+    public void setPer_ced(String per_ced) {
+        this.per_ced = per_ced;
     }
 
-    public String getApellido() {
-        return apellido;
+    /**
+     * @return the per_nombre
+     */
+    public String getPer_nombre() {
+        return per_nombre;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    /**
+     * @param per_nombre the per_nombre to set
+     */
+    public void setPer_nombre(String per_nombre) {
+        this.per_nombre = per_nombre;
     }
 
-    public String getTelefono() {
-        return telefono;
+    /**
+     * @return the per_apellido1
+     */
+    public String getPer_apellido1() {
+        return per_apellido1;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    /**
+     * @param per_apellido1 the per_apellido1 to set
+     */
+    public void setPer_apellido1(String per_apellido1) {
+        this.per_apellido1 = per_apellido1;
     }
 
-    public String getSexo() {
-        return sexo;
+    /**
+     * @return the per_apellido2
+     */
+    public String getPer_apellido2() {
+        return per_apellido2;
     }
 
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+    /**
+     * @param per_apellido2 the per_apellido2 to set
+     */
+    public void setPer_apellido2(String per_apellido2) {
+        this.per_apellido2 = per_apellido2;
     }
 
-    public Date getFechaDeNacimiento() {
-        return fechaDeNacimiento;
+    /**
+     * @return the per_correo
+     */
+    public String getPer_correo() {
+        return per_correo;
     }
 
-    public void setFechaDeNacimiento(Date fechaDeNacimiento) {
-        this.fechaDeNacimiento = fechaDeNacimiento;
+    /**
+     * @param per_correo the per_correo to set
+     */
+    public void setPer_correo(String per_correo) {
+        this.per_correo = per_correo;
     }
 
-    public double getSueldo() {
-        return sueldo;
+    /**
+     * @return the per_persona
+     */
+    public int getPer_persona() {
+        return per_persona;
     }
 
-    public void setSueldo(double sueldo) {
-        this.sueldo = sueldo;
-    }
-
-    public int getCupo() {
-        return cupo;
-    }
-
-    public void setCupo(int cupo) {
-        this.cupo = cupo;
-    }  
-
-    public Image getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Image foto) {
-        this.foto = foto;
-    }
-
-    public int getLargo() {
-        return largo;
-    }
-
-    public void setLargo(int largo) {
-        this.largo = largo;
-    }
-
-    public FileInputStream getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(FileInputStream imagen) {
-        this.imagen = imagen;
+    /**
+     * @param per_persona the per_persona to set
+     */
+    public void setPer_persona(int per_persona) {
+        this.per_persona = per_persona;
     }
     
 }
