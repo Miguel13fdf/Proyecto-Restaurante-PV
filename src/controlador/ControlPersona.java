@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import java.awt.Image;
-import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -32,10 +25,6 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import vista.VistaPersonas;
 
-/**
- *
- * @author joelu
- */
 public class ControlPersona {
 
     private ModeloPersona modelo;
@@ -46,12 +35,9 @@ public class ControlPersona {
         this.modelo = modelo;
         this.vista = vista;
         vista.setVisible(true);
-        //Hacer visible la vista
     }
 
     public void iniciacontrol() {
-        //Estar a la escuha de todos los elementos de vista
-        //boton actualizar
         vista.getBtnActualizar().addActionListener(l -> cargaPersonas());        
         vista.getBtnCrear().addActionListener(l -> abrirDialogo(1));
         vista.getBtnEditar().addActionListener(l -> abrirDialogo(2));
@@ -59,12 +45,6 @@ public class ControlPersona {
         vista.getBtnexaminar().addActionListener(l -> examinarfoto());
        vista.getBtnEliminar().addActionListener(l ->EliminarDatos());
        vista.getBtnImprimir().addActionListener(l->imprimirPersonas());
-//dentro de los parentesis puede hacer un
-//                vista.getBtnActualizar().addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//            }
     }
 
     public void examinarfoto() {
@@ -85,8 +65,6 @@ public class ControlPersona {
     }
 
     private void cargaPersonas() {
-        //Control para consultar al modelo
-        // y luego en la vista
         List<Persona> listap = modelo.listaPersonas();
         DefaultTableModel mPersona;
         mPersona = (DefaultTableModel) vista.getTbPersona().getModel();
@@ -109,20 +87,16 @@ public class ControlPersona {
 
             Image foto=pe.getFoto();
             if(foto!=null){
-            
                 Image nimg= foto.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
                 ImageIcon icono=new ImageIcon(nimg);
                 DefaultTableCellRenderer renderer= new DefaultTableCellRenderer();
                 renderer.setIcon(icono);
                 vista.getTbPersona().setValueAt(new JLabel(icono), i.value, 8);
-                
             }else{
                  vista.getTbPersona().setValueAt(null, i.value, 8);
             }
             
             i.value++;
-//           String[] filap={pe.getIdPersona(),pe.getNombres(),pe.getApellidos(),"25"}; 
-//           tblModel.addRow(filap);
         });                 
         
     }
@@ -299,8 +273,5 @@ public class ControlPersona {
         } catch (JRException ex) {
             Logger.getLogger(ControlPersona.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
     }
-     
 }
