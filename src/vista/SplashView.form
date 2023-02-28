@@ -53,9 +53,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JProgressBar" name="progress">
-      <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="progressStateChanged"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>

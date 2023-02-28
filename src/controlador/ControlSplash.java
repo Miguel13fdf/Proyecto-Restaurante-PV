@@ -14,19 +14,21 @@ public class ControlSplash extends Thread {
     }
 
     public void IniciarControl() {
-        splashView.setLocationRelativeTo(null);
-        Cargar(splashView.getProgress());
-        start();
+        
         splashView.getProgress().addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                javax.swing.JProgressBar progressBar = (javax.swing.JProgressBar) evt.getSource();
-                if (progressBar.getValue() == progressBar.getMaximum()) {
+                if (splashView.getProgress().getValue() == splashView.getProgress().getMaximum()) {
                     VistaPrincipal vp = new VistaPrincipal();
                     vp.setVisible(true);
                     splashView.dispose();
                 }
             }
         });
+        
+        splashView.setLocationRelativeTo(null);
+        Cargar(splashView.getProgress());
+        start();
+        splashView.setLocationRelativeTo(null);
     }
 
     public void Cargar(JProgressBar progress) {

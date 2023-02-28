@@ -3,11 +3,6 @@ package vista;
 
 public final class SplashView extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SplashView
-     */
-    controlador.ControlSplash splashController;
-
     public SplashView() {
         initComponents();
     }
@@ -30,12 +25,6 @@ public final class SplashView extends javax.swing.JFrame {
         setUndecorated(true);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Splash.png"))); // NOI18N
-
-        progress.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                progressStateChanged(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(null);
@@ -66,10 +55,6 @@ public final class SplashView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void progressStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_progressStateChanged
-        
-    }//GEN-LAST:event_progressStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
