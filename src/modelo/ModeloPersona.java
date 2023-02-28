@@ -1,5 +1,6 @@
 package modelo;
 
+import modelo.Clases.Persona;
 import java.awt.Image;
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;

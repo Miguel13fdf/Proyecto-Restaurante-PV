@@ -1,6 +1,5 @@
 package mvc;
 
-import controlador.ControladorMP;
 import vista.*;
 
 public class Mvc {

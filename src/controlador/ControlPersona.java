@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.xml.ws.Holder;
 import modelo.ConectPG;
 import modelo.ModeloPersona;
-import modelo.Persona;
+import modelo.Clases.Persona;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
