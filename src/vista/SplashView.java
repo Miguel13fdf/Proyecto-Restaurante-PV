@@ -26,6 +26,8 @@ public final class SplashView extends javax.swing.JFrame {
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo_Splash.png"))); // NOI18N
 
+        progress.setForeground(new java.awt.Color(255, 147, 78));
+
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(null);
 

@@ -1,167 +1,106 @@
 package modelo;
 
-import modelo.Clases.Persona;
-import java.awt.Image;
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.Date;
+import Conexion.ConectPG;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageReadParam;
-import javax.imageio.ImageReader;
-import javax.imageio.stream.ImageInputStream;
+import modelo.Clases.Persona;
 
-/**
- *
- * @author monge
- */
 public class ModeloPersona extends Persona {
+
+    ConectPG cpg = new ConectPG();
+    PreparedStatement ps;
 
     public ModeloPersona() {
     }
-      ConectPG cpg=new ConectPG();
 
-    public ModeloPersona(String idPersona, String nombre, String apellido, String sexo, Date fechaDeNacimiento, String telefono, double sueldo, int cupo ) {
-        super(idPersona, nombre, apellido, sexo, fechaDeNacimiento, telefono, sueldo, cupo);
+    public ModeloPersona(int per_id, String per_ced, String per_nombre, String per_apellido1, String per_apellido2, String per_correo, int per_persona) {
+        super(per_id, per_ced, per_nombre, per_apellido1, per_apellido2, per_correo, per_persona);
     }
 
-    public List<Persona> listaPersonas() {
-        try {
-            //Me retorna un "List" de "persona"
-            List<Persona> lista = new ArrayList<>();
-
-            String sql = "select idpersona,nombres,apellidos,fechadenacimiento, telefono,sexo,cupos, sueldo, foto  from persona";
-            //agregar foto para quitar error
-            ConectPG conpg = new ConectPG();
-            ResultSet rs = conpg.consulta(sql); //La consulta nos devuelve un "ResultSet"
-            //crear bytea con array de bytes
-            byte[] bytea;
-            //Pasar de "ResultSet" a "List"
-            while (rs.next()) {
-                //Crear las instancias de las personas
-                Persona persona = new Persona();
-
-                //Todo lo que haga en la sentencia define como voy a extraer los datos
-                persona.setIdPersona(rs.getString("idpersona"));
-                persona.setNombre(rs.getString("nombres"));
-                persona.setApellido(rs.getString("apellidos"));
-                persona.setFechaDeNacimiento(rs.getDate("fechadenacimiento"));
-                persona.setTelefono(rs.getString("telefono"));
-                persona.setSexo(rs.getString("sexo"));
-                persona.setCupo(rs.getInt("cupos"));
-                persona.setSueldo(rs.getDouble("sueldo"));
-                bytea=rs.getBytes("foto");
-                 if (bytea!=null){
-                 //Decodificando del formato de la base.(Base64)               
-                    //bytea=Base64.decode(bytea,0,bytea.length);
-                try {
-                    persona.setFoto(obtenerfoto(bytea));
-                } catch (IOException ex) {
-                    Logger.getLogger(ModeloPersona.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                }
-                
-                
-
-                lista.add(persona); //Agrego los datos a la lista
-            }
-
-            //Cierro la conexion a la BD
-            rs.close();
-            //Retorno la lista
-            return lista;
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ModeloPersona.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-    }
-public Image obtenerfoto(byte[]bytes) throws IOException{
-    ByteArrayInputStream byta = new ByteArrayInputStream(bytes);
-    //recorrer todos los bytes del array 
-    Iterator it = ImageIO.getImageReadersByFormatName("png");
-    ImageReader red= (ImageReader) it.next();
-    Object src = byta;
-    ImageInputStream inus=ImageIO.createImageInputStream(src);
-    red.setInput(inus,true);
-    ImageReadParam para = red.getDefaultReadParam();
-    para.setSourceSubsampling(1, 1, 0, 0);
-    return red.read(0,para);
-}
-    public boolean crearPersonaByte(){
-        try {
-            String sql;
-            
-            sql="INSERT INTO persona (idpersona,nombres,apellidos,sexo,fechadenacimiento,telefono,cupos,sueldo,foto)";
-            sql+="VALUES(?,?,?,?,?,?,?,?,?)";
-            ConectPG conpg = new ConectPG();
-            PreparedStatement ps = conpg.getCon().prepareStatement(sql);
-            ps.setString(1, getIdPersona());
-            ps.setString(2, getNombre());
-            ps.setString(3, getApellido());
-            ps.setString(4,getSexo());
-            ps.setDate(5, getFechaDeNacimiento());
-            ps.setString(6,getTelefono());
-            ps.setInt(7, getCupo());
-            ps.setDouble(8,getSueldo());
-            ps.setBinaryStream(9, getImagen(), getLargo());
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(ModeloPersona.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-    }public boolean editarPersonaByte(){
-          try {
-            String sql;
-            
-            sql="UPDATE persona SET nombres=?,apellidos=?,sexo=?,fechadenacimiento=?,telefono=?,cupos=?,sueldo=?,foto=? Where idpersona=?";
-            PreparedStatement ps = cpg.getCon().prepareStatement(sql);
-            ps.setString(1, getNombre());
-            ps.setString(2, getApellido());
-            ps.setDate(4, getFechaDeNacimiento());
-            ps.setString(5,getTelefono());
-            ps.setString(3,getSexo());
-            ps.setDouble(7,getSueldo());
-            ps.setInt(6, getCupo());
-            ps.setBinaryStream(8, getImagen(), getLargo());
-            ps.setString(9, getIdPersona());
-            ps.executeUpdate();
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(ModeloPersona.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-     }
-
-    public SQLException modificarPersonaDB() { //modificamos la instancia en la BD
-
-        String sql = "UPDATE persona SET nombres='" + getNombre() + "', apellidos='" + getApellido() + "', fechanacimiento='" + getFechaDeNacimiento() + "', telefono='" + getTelefono() + "', sexo='" + getSexo() + "', sueldo=" + getSueldo() + ", cupo=" + getCupo() + ", foto=null WHERE idpersona = '" + getIdPersona() + "';";
-            ConectPG conpg = new ConectPG();
-
-        
-
-        SQLException ex = conpg.accion(sql); //Devuelve un valor de tipo "SQLException". Si devuelve 'null' esta bien, caso contrario me retornara la excepcion.
-        return ex;
-    }
-
-    public SQLException eliminarPersonaDB() { //eliminas la instancia en la BD
-
-        String sql = "DELETE FROM persona WHERE idpersona = '" + getIdPersona() + "';";
-
-        ConectPG conpg = new ConectPG();
-
-        SQLException ex = conpg.accion(sql); //Devuelve un valor de tipo "SQLException". Si devuelve 'null' esta bien, caso contrario me retornara la excepcion.
-        return ex;
-    }
-
+//    public static void listar(String busca) {
+//        String sql = "";
+//        if (busca.equals("")) {
+//            sql = UsuariosCod.LISTAR_US;
+//        } else {
+//            sql = "SELECT * FROM usuarios WHERE (codigo_us like'" + busca + "%' or nombre_us like'" + busca + "%') "
+//                    + " order by nombre_us";
+//        }
+//        String datos[] = new String[5];
+//        try {
+//            Statement st = cn.createStatement();
+//            ResultSet rs = st.executeQuery(sql);
+//            while (rs.next()) {
+//                datos[0] = rs.getString("codigo_us");
+//                datos[1] = rs.getString("nombre_us");
+//                datos[2] = rs.getString("sexo_us");
+//                datos[3] = rs.getString("tipo_us");
+//                datos[4] = rs.getString("pass");
+//                modelo.addRow(datos);
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(OpcionesUs.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     
+//    public static int registrar(UsuariosCod uc) {
+//        int rsu = 0;
+//        String sql = UsuariosCod.REGISTRAR;
+//        try {
+//            ps = cn.prepareStatement(sql);
+//            ps.setString(1, uc.getPrimaryKey());
+//            ps.setString(2, uc.getNombre());
+//            ps.setString(3, uc.getSexo());
+//            ps.setString(4, uc.getTipouser());
+//            ps.setString(5, uc.getPassword());
+//            rsu = ps.executeUpdate();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//        System.out.println(sql);
+//        return rsu;
+//    }
+//
+//    public static int actualizar(UsuariosCod uc) {
+//        int rsu = 0;
+//        String sql = UsuariosCod.ACTUALIZAR;
+//        try {
+//            ps = cn.prepareStatement(sql);
+//            ps.setString(1, uc.getNombre());
+//            ps.setString(2, uc.getSexo());
+//            ps.setString(3, uc.getTipouser());
+//            ps.setString(4, uc.getPassword());
+//            ps.setString(5, uc.getPrimaryKey());
+//            rsu = ps.executeUpdate();
+//        } catch (SQLException ex) {
+//        }
+//        System.out.println(sql);
+//        return rsu;
+//    }
+//
+//    public static int eliminar(String id) {
+//        int rsu = 0;
+//        String sql = UsuariosCod.ELIMINAR;
+//
+//        try {
+//            ps = cn.prepareStatement(sql);
+//            ps.setString(1, id);
+//            rsu = ps.executeUpdate();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//        System.out.println(sql);
+//        return rsu;
+//    }
+//
+//    public static int eliminaTodos() {
+//        int rsu = 0;
+//        String sql = UsuariosCod.ELIMINAR_TODO;
+//        try {
+//            ps = cn.prepareStatement(sql);
+//            rsu = ps.executeUpdate();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//        System.out.println(sql);
+//        return rsu;
+//    }
 }
