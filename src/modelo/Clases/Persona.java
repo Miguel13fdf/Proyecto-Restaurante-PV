@@ -1,21 +1,7 @@
 package modelo.Clases;
 
 public class Persona {
-
-    // Setencias SQL
-    public static String LISTAR_US = "SELECT * FROM persona"; // ORDER BY nombre_us
-
-    public static String REGISTRAR = "INSERT INTO persona(codigo_us, nombre_us, sexo_us, tipo_us, pass) "
-            + "VALUES(?,?,?,?,?)";
-
-    public static String ACTUALIZAR = "UPDATE persona SET "
-            + "nombre_us=?, ";
-
-    public static String ELIMINAR = "DELETE FROM persona WHERE codigo_us = ?";
-
-    public static String ELIMINAR_TODO = "DELETE FROM persona";
-
-    // Atributos
+    
     private int per_id;
     private String per_ced;
     private String per_nombre;

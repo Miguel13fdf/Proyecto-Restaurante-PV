@@ -16,7 +16,7 @@ public class CargarSplash extends Thread {
     public void run() {
         for (int i = 1; i <= 100; i++) {
             progress.setValue(i);
-            pausa(30);
+            pausa(16);
         }
     }
 
