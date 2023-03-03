@@ -41,7 +41,7 @@ public class Background extends JComponent {
     private Component blur;
 
     public Background() {
-        image = new ImageIcon(getClass().getResource("/login/Product_1.jpg"));
+        image = new ImageIcon(getClass().getResource("/CustomElements/Login/Product_1.jpg"));
     }
 
     private void createImage() {
