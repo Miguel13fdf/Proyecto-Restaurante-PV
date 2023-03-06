@@ -6,8 +6,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 
-// Esta clase proporciona una manera fácil de agregar un efecto de vidrio esmerilado 
-// a una ventana o panel java Swing.
+/**
+ * Esta clase proporciona una manera fácil de agregar un efecto de vidrio esmerilado a una ventana o panel java Swing.
+ * Se la utiliza en las alertas (Message Dialog)
+ */
 public class Glass extends JComponent {
 
     public float getAlpha() {

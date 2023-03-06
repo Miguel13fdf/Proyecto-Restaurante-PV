@@ -15,7 +15,7 @@ public class ConectPG {
 
     String cadenaConexion = "jdbc:postgresql://localhost:5432/Restaurante_Progra"; // conexion String o cadena de conexion
     String usuarioPG = "postgres";
-    String passPG = "angel654";
+    String passPG = "1234";
 
     public ConectPG() {
         try {
@@ -23,12 +23,12 @@ public class ConectPG {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConectPG.class.getName()).log(Level.SEVERE, null, ex);
         }
-        try {
-            con = DriverManager.getConnection(cadenaConexion, usuarioPG, passPG);
-            System.out.println("Conexion exitosa");
-        } catch (SQLException ex) {
-            Logger.getLogger(ConectPG.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+////            con = DriverManager.getConnection(cadenaConexion, usuarioPG, passPG);
+//            System.out.println("Conexion exitosa");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ConectPG.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     public ResultSet consulta(String sql) {

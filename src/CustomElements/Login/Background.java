@@ -19,12 +19,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
 
+/**
+ * define un objeto que representa el fondo de un componente en una interfaz de
+ * usuario. El fondo se define por una imagen que se puede difuminar con un
+ * componente de borde, y la clase utiliza la biblioteca TwelveMonkeys ImageIO
+ * para generar imágenes difuminadas. La clase también utiliza la clase
+ * FancyBorderRadius para definir la forma de los bordes de la imagen.
+ */
 public class Background extends JComponent {
 
     public Component getBlur() {
         return blur;
     }
 
+    /**
+     * inicializa la imagen de fondo con una imagen predeterminada, y la clase
+     * tiene un método setBlur que permite establecer el componente que se
+     * utilizará para difuminar la imagen de fondo.
+     */
     public void setBlur(Component blur) {
         this.blur = blur;
         SwingUtilities.invokeLater(new Runnable() {
@@ -41,9 +53,15 @@ public class Background extends JComponent {
     private Component blur;
 
     public Background() {
-        image = new ImageIcon(getClass().getResource("/CustomElements/Login/Product_1.jpg"));
+        image = new ImageIcon(getClass().getResource("/CustomElements/Login/Product_4.jpg"));
     }
 
+    /**
+     * Se encargara de dibujar la imagen que fue definida en el contructor. Una
+     * vez que se completa el dibujo, la imagen de fondo se almacena en la
+     * variable bufferedImage, y se muestra en el componente usando el método
+     * paintComponent sobrescrito.
+     */
     private void createImage() {
         if (image != null) {
             int width = getWidth();
@@ -62,6 +80,12 @@ public class Background extends JComponent {
         }
     }
 
+    /**
+     * Crea una imagen borrosa para agregar un efecto de desenfoque a la imagen
+     * de fondo. Una vez que se completa el dibujo, la imagen de fondo se
+     * almacena en la variable bufferedImage, y se muestra en el componente
+     * usando el método paintComponent sobrescrito.
+     */
     private void createBlurImage(Graphics2D g) {
         int x = blur.getX();
         int y = blur.getY();
@@ -72,6 +96,7 @@ public class Background extends JComponent {
             BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
             Graphics2D g2 = img.createGraphics();
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            // Aqui se puede cambiar los porcentajes para lograr un mejor resultado (Se lo utiliza para crear una forma con bordes curvos)
             Shape shape = new FancyBorderRadius(width, height, "32% 68% 65% 35% / 60% 78% 22% 40%").getShape();
             g2.fill(shape);
             g2.setComposite(AlphaComposite.SrcIn);
@@ -112,6 +137,10 @@ public class Background extends JComponent {
         });
     }
 
+    /**
+     * calcula el tamaño y la posición de la imagen de fondo para que se ajuste
+     * al componente.
+     */
     private Rectangle getAutoSize(Icon image) {
         int w = getWidth();
         int h = getHeight();

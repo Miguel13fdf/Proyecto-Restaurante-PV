@@ -1,5 +1,10 @@
 package CustomElements.Login;
 
+/**
+ * define un objeto que representa los bordes de un elemento gráfico en una
+ * interfaz de usuario. El borde se define por cuatro puntos, que se representan
+ * mediante la clase interna Point.
+ */
 public class Border {
 
     public Point getTop() {

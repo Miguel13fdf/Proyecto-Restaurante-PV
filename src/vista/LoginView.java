@@ -1,13 +1,31 @@
 package vista;
 
+import CustomElements.Login.Background;
 import CustomElements.Login.swing.Button;
 import CustomElements.Login.swing.PasswordField;
 import CustomElements.Login.swing.TextField;
+import javax.swing.JLabel;
 
 public class LoginView extends javax.swing.JFrame {
 
     public LoginView() {
         initComponents();
+    }
+
+    public JLabel getAlertpswtxt() {
+        return alertpswtxt;
+    }
+
+    public void setAlertpswtxt(JLabel alertpswtxt) {
+        this.alertpswtxt = alertpswtxt;
+    }
+
+    public JLabel getAlertusutxt() {
+        return alertusutxt;
+    }
+
+    public void setAlertusutxt(JLabel alertusutxt) {
+        this.alertusutxt = alertusutxt;
     }
 
     public Button getInicIarSBtn() {
@@ -44,6 +62,8 @@ public class LoginView extends javax.swing.JFrame {
         passwordField1 = new CustomElements.Login.swing.PasswordField();
         userTextField = new CustomElements.Login.swing.TextField();
         InicIarSBtn = new CustomElements.Login.swing.Button();
+        alertusutxt = new javax.swing.JLabel();
+        alertpswtxt = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -52,54 +72,40 @@ public class LoginView extends javax.swing.JFrame {
         background1.setBlur(panel);
 
         panel.setOpaque(false);
+        panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         titletxt.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         titletxt.setForeground(new java.awt.Color(255, 255, 255));
         titletxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titletxt.setText("Iniciar Sesion");
+        panel.add(titletxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 73, 162, -1));
 
         passwordField1.setHint("Contraseña");
+        panel.add(passwordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 183, 220, -1));
 
         userTextField.setHint("Nombre De Usuario");
+        panel.add(userTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 123, 220, -1));
 
         InicIarSBtn.setForeground(new java.awt.Color(255, 255, 255));
         InicIarSBtn.setText("Iniciar Sesion");
+        panel.add(InicIarSBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 190, -1));
 
-        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
-        panel.setLayout(panelLayout);
-        panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addComponent(titletxt, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(passwordField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(InicIarSBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
-        panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(titletxt)
-                .addGap(18, 18, 18)
-                .addComponent(userTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(InicIarSBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
-        );
+        alertusutxt.setBackground(new java.awt.Color(255, 255, 255));
+        alertusutxt.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
+        alertusutxt.setForeground(new java.awt.Color(255, 51, 51));
+        alertusutxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        alertusutxt.setText("ALERTA");
+        panel.add(alertusutxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 161, 220, -1));
+
+        alertpswtxt.setBackground(new java.awt.Color(255, 255, 255));
+        alertpswtxt.setFont(new java.awt.Font("Segoe UI Semilight", 1, 12)); // NOI18N
+        alertpswtxt.setForeground(new java.awt.Color(255, 51, 51));
+        alertpswtxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        alertpswtxt.setText("ALERTA");
+        panel.add(alertpswtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 221, 229, -1));
 
         background1.add(panel);
-        panel.setBounds(310, 130, 330, 334);
+        panel.setBounds(310, 130, 330, 350);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,6 +123,8 @@ public class LoginView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private CustomElements.Login.swing.Button InicIarSBtn;
+    private javax.swing.JLabel alertpswtxt;
+    private javax.swing.JLabel alertusutxt;
     private CustomElements.Login.Background background1;
     private javax.swing.JPanel panel;
     private CustomElements.Login.swing.PasswordField passwordField1;

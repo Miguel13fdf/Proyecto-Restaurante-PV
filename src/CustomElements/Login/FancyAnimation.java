@@ -1,5 +1,12 @@
 package CustomElements.Login;
 
+/**
+ * define un objeto que representa una animación que cambia los bordes de un
+ * elemento gráfico en una interfaz de usuario. La animación se define por dos
+ * formatos de cadena de texto que representan los valores iniciales y finales
+ * de los bordes, y se utiliza la clase Border para convertir estos formatos de
+ * cadena en puntos de borde.
+ */
 public class FancyAnimation {
 
     public FancyAnimation(String start, String end) {

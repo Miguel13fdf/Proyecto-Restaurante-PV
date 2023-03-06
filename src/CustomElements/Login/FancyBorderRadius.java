@@ -6,6 +6,10 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * Proporciona métodos para establecer las medidas de los bordes y para obtener la forma del panel
+ * con bordes redondeados en forma de un objeto Shape.
+ */
 public class FancyBorderRadius {
 
     public double getWidth() {
