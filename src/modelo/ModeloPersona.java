@@ -43,7 +43,7 @@ public class ModeloPersona extends Persona {
         if (busca.equals("")) {
             sql = LISTAR_PE;
         } else {
-            sql = "select * from Camion where ";
+            sql = "select * from persona where ";
             sql += "UPPER(per_cedula) like UPPER('%" + busca + "%') ";
             sql += "OR UPPER(per_nombre) like UPPER('%" + busca + "%') ";
             sql += "OR UPPER(per_apellido1) like UPPER('%" + busca + "%') ";
