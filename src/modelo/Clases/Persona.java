@@ -1,25 +1,27 @@
 package modelo.Clases;
 
 public class Persona {
-    
+
     private int per_id;
     private String per_ced;
     private String per_nombre;
     private String per_apellido1;
     private String per_apellido2;
     private String per_correo;
+    private int per_Edad;
     private int per_persona;
 
     public Persona() {
     }
 
-    public Persona(int per_id, String per_ced, String per_nombre, String per_apellido1, String per_apellido2, String per_correo, int per_persona) {
+    public Persona(int per_id, String per_ced, String per_nombre, String per_apellido1, String per_apellido2, String per_correo, int per_Edad, int per_persona) {
         this.per_id = per_id;
         this.per_ced = per_ced;
         this.per_nombre = per_nombre;
         this.per_apellido1 = per_apellido1;
         this.per_apellido2 = per_apellido2;
         this.per_correo = per_correo;
+        this.per_Edad = per_Edad;
         this.per_persona = per_persona;
     }
 
@@ -71,6 +73,14 @@ public class Persona {
         this.per_correo = per_correo;
     }
 
+    public int getPer_Edad() {
+        return per_Edad;
+    }
+
+    public void setPer_Edad(int per_Edad) {
+        this.per_Edad = per_Edad;
+    }
+
     public int getPer_persona() {
         return per_persona;
     }
@@ -78,4 +88,5 @@ public class Persona {
     public void setPer_persona(int per_persona) {
         this.per_persona = per_persona;
     }
+
 }

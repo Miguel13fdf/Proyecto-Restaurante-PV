@@ -31,14 +31,12 @@ public class ModeloPersona extends Persona {
     public ModeloPersona() {
     }
 
-    public ModeloPersona(int per_id, String per_ced, String per_nombre, String per_apellido1, String per_apellido2, String per_correo, int per_persona) {
-        super(per_id, per_ced, per_nombre, per_apellido1, per_apellido2, per_correo, per_persona);
+    public ModeloPersona(int per_id, String per_ced, String per_nombre, String per_apellido1, String per_apellido2, String per_correo, int per_Edad, int per_persona) {
+        super(per_id, per_ced, per_nombre, per_apellido1, per_apellido2, per_correo, per_Edad, per_persona);
     }
 
     public List<Persona> Listar(String busca) {
         String sql = "";
-        ResultSet rs = conpg.consulta(sql);
-        List<Persona> lista = new ArrayList<Persona>();
 
         if (busca.equals("")) {
             sql = LISTAR_PE;
@@ -52,6 +50,8 @@ public class ModeloPersona extends Persona {
             sql += "OR UPPER(per_edad) like UPPER('%" + busca + "%') ";
         }
 
+        ResultSet rs = conpg.consulta(sql);
+        List<Persona> lista = new ArrayList<Persona>();
         try {
             while (rs.next()) {
                 Persona persona = new Persona();

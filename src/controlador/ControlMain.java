@@ -2,6 +2,7 @@ package controlador;
 
 import CustomElements.Menu.EventMenuSelected;
 import java.awt.Component;
+import modelo.ModeloPersona;
 import vista.*;
 import vista.Main.*;
 
@@ -10,59 +11,56 @@ public class ControlMain {
     public MainView mainView;
     DashboardView dView;
 
-    public ControlMain(MainView mainView) {
+    public ControlMain(MainView mainView, DashboardView dView) {
         this.mainView = mainView;
+        this.dView = dView;
     }
 
     public void IniciarControl() {
-        //<editor-fold defaultstate="collapsed" desc=" Proceso para mostrar correctamente el panel Main.">
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        // --> Necesario para que se ejecute correctamente los paneles personalizados
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                mainView.setVisible(true);
-            }
-        });
-        //</editor-fold>
-
+        mainView.setVisible(true);
         dView = new DashboardView();
         mainView.getTitleBar().initJFram(mainView);
+
         mainView.getMenu().addEvent(new EventMenuSelected() {
             @Override
             public void menuSelected(int index, int indexSubMenu
             ) {
-                System.out.println(index);
+                System.out.println("Panel seleccionado: " + index);
                 switch (index) {
                     case 0:
                         showForm(new DashboardView());
+                        mainView.getHeader1().getTitleTXT().setText("Dasboard");
                         break;
                     case 1:
-                        showForm(new ClientesView());
+                        PersonaView cliView = new PersonaView();
+                        showForm(cliView);
+                        ControlPersona cPersona = new ControlPersona(new ModeloPersona(), cliView, mainView);
+                        cPersona.iniciarControl();
+                        mainView.getHeader1().getTitleTXT().setText("Clientes");
                         break;
                     case 2:
                         showForm(new DashboardView());
+                        mainView.getHeader1().getTitleTXT().setText("Reportes");
                         break;
                     case 3:
                         showForm(new DashboardView());
+                        mainView.getHeader1().getTitleTXT().setText("Personal");
                         break;
                     case 4:
                         showForm(new DashboardView());
+                        mainView.getHeader1().getTitleTXT().setText("Menu");
+                        break;
+                    case 5:
+                        showForm(new DashboardView());
+                        mainView.getHeader1().getTitleTXT().setText("Reserva");
+                        break;
+                    case 6:
+                        showForm(new DashboardView());
+                        mainView.getHeader1().getTitleTXT().setText("Pedidos");
+                        break;
+                    case 7:
+                        showForm(new DashboardView());
+                        mainView.getHeader1().getTitleTXT().setText("Acerca Del Proyecto");
                         break;
                     default:
                         System.out.println("No hay paginas que mostrar");
@@ -71,6 +69,7 @@ public class ControlMain {
         }
         );
         mainView.getMenu().setSelectedIndex(0, 0);
+
         initCardData();
     }
 

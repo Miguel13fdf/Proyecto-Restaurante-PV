@@ -2,6 +2,7 @@ package vista.Components;
 
 import CustomElements.Glass;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
@@ -22,7 +23,7 @@ public class MssDialog extends javax.swing.JDialog {
     private boolean show;
     private MessageType messageType = MessageType.CANCEL;
 
-    enum MssType {
+    public static enum MssType {
         Error,
         TodoBien,
         Correcto,
@@ -121,7 +122,6 @@ public class MssDialog extends javax.swing.JDialog {
                 OkBtn.setColorPressed(new Color(46, 106, 153));
                 lbTitle.setForeground(new Color(65, 147, 210));
                 CancelBtn.setVisible(false);
-                OkBtn.setSize(398, OkBtn.getHeight());
                 break;
             case Pregunta:
                 lbIcon.setIcon(confirmacionIcon);
@@ -130,12 +130,14 @@ public class MssDialog extends javax.swing.JDialog {
                 lbIcon.setIcon(todoBienIcon);
                 lbTitle.setForeground(new Color(111, 213, 1));
                 CancelBtn.setVisible(false);
-                OkBtn.setSize(398, OkBtn.getHeight());
                 break;
             case Error:
                 lbIcon.setIcon(errorIcon);
+                lbTitle.setForeground(new Color(236, 24, 24));
+                OkBtn.setBackground(new Color(236, 24, 24));
+                OkBtn.setColorHover(new Color(255, 41, 25));
+                OkBtn.setColorPressed(new Color(204, 32, 19));
                 CancelBtn.setVisible(false);
-                OkBtn.setSize(398, OkBtn.getHeight());
                 break;
         }
         fram.setGlassPane(glass);
@@ -167,6 +169,7 @@ public class MssDialog extends javax.swing.JDialog {
         OkBtn = new CustomElements.ButtonCustom();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         lbIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/CustomElements/MessageDialog/ErrorIcon.png"))); // NOI18N
@@ -210,10 +213,9 @@ public class MssDialog extends javax.swing.JDialog {
                     .addComponent(lbIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txt)
                     .addGroup(BackgroundLayout.createSequentialGroup()
-                        .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CancelBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
                         .addGap(3, 3, 3)
-                        .addComponent(OkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(OkBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         BackgroundLayout.setVerticalGroup(
