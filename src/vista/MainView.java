@@ -1,13 +1,19 @@
 package vista;
 
+import CustomElements.Menu.EventMenuSelected;
 import CustomElements.Menu.Menu;
 import CustomElements.TitleBar;
+import java.awt.Component;
 import javax.swing.JPanel;
+import vista.Main.ClientesView;
 
 public class MainView extends javax.swing.JFrame {
-    
+
+    private static MainView main;
+
     public MainView() {
         initComponents();
+        init();
     }
 
     public TitleBar getTitleBar() {
@@ -33,7 +39,65 @@ public class MainView extends javax.swing.JFrame {
     public void setMenu(Menu menu) {
         this.menu = menu;
     }
-    
+
+    private void init() {
+        main = this;
+        titleBar.initJFram(this);
+        menu.addEvent(new EventMenuSelected() {
+            @Override
+            public void menuSelected(int index, int indexSubMenu) {
+                if (index == 0 && indexSubMenu == 0) {
+                    showForm(new ClientesView());
+                } else {
+//                    showForm(new Form_Empty(index + " " + indexSubMenu));
+                }
+            }
+        });
+        menu.setSelectedIndex(0, 0);
+    }
+
+    public void showForm(Component com) {
+        body.removeAll();
+        body.add(com);
+        body.repaint();
+        body.revalidate();
+    }
+
+    public static MainView getMain() {
+        return main;
+    }
+
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainView().setVisible(true);
+            }
+        });
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -42,6 +106,7 @@ public class MainView extends javax.swing.JFrame {
         panelMenu = new javax.swing.JPanel();
         titleBar = new CustomElements.TitleBar();
         menu = new CustomElements.Menu.Menu();
+        header1 = new vista.Components.Header();
         body = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,6 +115,8 @@ public class MainView extends javax.swing.JFrame {
         background.setBackground(new java.awt.Color(245, 245, 245));
 
         panelMenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        menu.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
         panelMenu.setLayout(panelMenuLayout);
@@ -64,11 +131,11 @@ public class MainView extends javax.swing.JFrame {
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelMenuLayout.createSequentialGroup()
                 .addComponent(titleBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(menu, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE))
         );
 
+        body.setBackground(new java.awt.Color(204, 204, 204));
         body.setOpaque(false);
         body.setLayout(new java.awt.BorderLayout());
 
@@ -78,17 +145,18 @@ public class MainView extends javax.swing.JFrame {
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 1098, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(header1, javax.swing.GroupLayout.DEFAULT_SIZE, 1104, Short.MAX_VALUE)))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+                .addComponent(header1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,6 +177,7 @@ public class MainView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JPanel body;
+    private vista.Components.Header header1;
     private CustomElements.Menu.Menu menu;
     private javax.swing.JPanel panelMenu;
     private CustomElements.TitleBar titleBar;

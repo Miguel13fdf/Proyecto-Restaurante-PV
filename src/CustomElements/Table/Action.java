@@ -1,26 +1,25 @@
 package CustomElements.Table;
 
+import CustomElements.Menu.Button;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Action extends javax.swing.JPanel {
 
-    public Action(ModelAction data) {
-        initComponents();
-        EditBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                data.getEvent().update(data.getStudent());
-            }
-        });
-        DeleteBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                data.getEvent().delete(data.getStudent());
-            }
-        });
+    public Button getDeleteBtn() {
+        return DeleteBtn;
+    }
+
+    public void setDeleteBtn(Button DeleteBtn) {
+        this.DeleteBtn = DeleteBtn;
+    }
+
+    public Button getEditBtn() {
+        return EditBtn;
+    }
+
+    public void setEditBtn(Button EditBtn) {
+        this.EditBtn = EditBtn;
     }
 
     @Override

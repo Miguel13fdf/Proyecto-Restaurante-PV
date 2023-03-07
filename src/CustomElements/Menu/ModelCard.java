@@ -1,4 +1,4 @@
-package CustomElements;
+package CustomElements.Menu;
 
 import javax.swing.Icon;
 
@@ -20,6 +20,14 @@ public class ModelCard {
         this.values = values;
     }
 
+    public int getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(int percentage) {
+        this.percentage = percentage;
+    }
+
     public Icon getIcon() {
         return icon;
     }
@@ -28,9 +36,10 @@ public class ModelCard {
         this.icon = icon;
     }
 
-    public ModelCard(String title, double values, Icon icon) {
+    public ModelCard(String title, double values, int percentage, Icon icon) {
         this.title = title;
         this.values = values;
+        this.percentage = percentage;
         this.icon = icon;
     }
 
@@ -39,5 +48,6 @@ public class ModelCard {
 
     private String title;
     private double values;
+    private int percentage;
     private Icon icon;
 }

@@ -13,15 +13,6 @@ import javax.swing.JComponent;
 import javax.swing.JScrollBar;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
-/**
- * Esta es una implementación personalizada de la interfaz de usuario de una barra de desplazamiento en Java Swing.
- * Algunas de las mejoras son:
- * No mostrar los botones de incremento y decremento de la barra de desplazamiento
- * No pintar la pista de la barra de desplazamiento
- * Pintar el pulgar de la barra de desplazamiento con un color personalizado y un efecto de transparencia
- * Limitar el tamaño mínimo y máximo del pulgar de la barra de desplazamiento
- */
-
 public class ModernScrollBarUI extends BasicScrollBarUI {
 
     private final int THUMB_SIZE = 5;
@@ -56,9 +47,6 @@ public class ModernScrollBarUI extends BasicScrollBarUI {
         return new Dimension(0, 75);
     }
 
-    /**
-     * Esto dibujara una barra gris, en el caso de que todo el contenido dentro del contenedor no sea visible.
-     */
     @Override
     protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
         if (scrollbar.getVisibleAmount() != scrollbar.getMaximum()) {

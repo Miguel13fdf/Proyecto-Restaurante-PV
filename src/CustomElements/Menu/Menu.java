@@ -15,13 +15,14 @@ import javax.swing.border.EmptyBorder;
 import net.miginfocom.swing.MigLayout;
 
 /**
- * Se encarga de crear y administrar el menú principal de la aplicación. 
- * (se definen todos los elementos del menú y se agregan a panelMenu, que es el
+ * Se encarga de crear y administrar el menú principal de la aplicación. (se
+ * definen todos los elementos del menú y se agregan a panelMenu, que es el
  * panel donde se van a mostrar todos los elementos. Se utiliza un JScrollPane
- * para que el menú pueda desplazarse si es muy largo.) 
- * 
- * Contiene métodos para agregar, seleccionar y deseleccionar elementos del menú, y también permite
- * agregar eventos personalizados que se ejecutarán cuando se seleccione un elemento del menú.
+ * para que el menú pueda desplazarse si es muy largo.)
+ *
+ * Contiene métodos para agregar, seleccionar y deseleccionar elementos del
+ * menú, y también permite agregar eventos personalizados que se ejecutarán
+ * cuando se seleccione un elemento del menú.
  */
 public class Menu extends JPanel {
 

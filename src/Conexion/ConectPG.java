@@ -13,7 +13,7 @@ public class ConectPG {
     Connection con;
     Statement st;
 
-    String cadenaConexion = "jdbc:postgresql://localhost:5432/Restaurante_Progra"; // conexion String o cadena de conexion
+    String cadenaConexion = "jdbc:postgresql://localhost:5432/Restaurant_App"; // conexion String o cadena de conexion
     String usuarioPG = "postgres";
     String passPG = "1234";
 
@@ -23,12 +23,12 @@ public class ConectPG {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ConectPG.class.getName()).log(Level.SEVERE, null, ex);
         }
-//        try {
-////            con = DriverManager.getConnection(cadenaConexion, usuarioPG, passPG);
-//            System.out.println("Conexion exitosa");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ConectPG.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            con = DriverManager.getConnection(cadenaConexion, usuarioPG, passPG);
+            System.out.println("Conexion exitosa");
+        } catch (SQLException ex) {
+            Logger.getLogger(ConectPG.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public ResultSet consulta(String sql) {
