@@ -1,7 +1,9 @@
 package controlador;
 
 import CustomElements.Menu.EventMenuSelected;
+import CustomElements.ModelCard;
 import java.awt.Component;
+import javax.swing.ImageIcon;
 import modelo.ModeloPersona;
 import vista.*;
 import vista.Main.*;
@@ -18,6 +20,8 @@ public class ControlMain {
 
     public void IniciarControl() {
         mainView.setVisible(true);
+        mainView.setTitle("Restaurant App");
+        mainView.setIconImage(new ImageIcon(getClass().getResource("../Imagenes/LOGO_RESTAURANT_PROYECT.png")).getImage());
         dView = new DashboardView();
         mainView.getTitleBar().initJFram(mainView);
 
@@ -28,14 +32,10 @@ public class ControlMain {
                 System.out.println("Panel seleccionado: " + index);
                 switch (index) {
                     case 0:
-                        showForm(new DashboardView());
+                        showForm(dView);
                         mainView.getHeader1().getTitleTXT().setText("Dasboard");
                         break;
                     case 1:
-                        PersonaView cliView = new PersonaView();
-                        showForm(cliView);
-                        ControlPersona cPersona = new ControlPersona(new ModeloPersona(), cliView, mainView);
-                        cPersona.iniciarControl();
                         mainView.getHeader1().getTitleTXT().setText("Clientes");
                         break;
                     case 2:
@@ -43,7 +43,10 @@ public class ControlMain {
                         mainView.getHeader1().getTitleTXT().setText("Reportes");
                         break;
                     case 3:
-                        showForm(new DashboardView());
+                        Crud_View crud_View = new Crud_View();
+                        showForm(crud_View);
+                        ControlPersona cPersona = new ControlPersona(new ModeloPersona(), crud_View, new Update_Personal(mainView, true),mainView);
+                        cPersona.iniciarControl();
                         mainView.getHeader1().getTitleTXT().setText("Personal");
                         break;
                     case 4:
@@ -81,12 +84,12 @@ public class ControlMain {
     }
 
     private void initCardData() {
-//        dView.getCard1().setData(new ModelCard("Clientes", 5100, null));
+        dView.getCard1().setData(new ModelCard("Clientes", 200, null));
 //        Icon icon2 = IconFontSwing.buildIcon(GoogleMaterialDesignIcons.MONETIZATION_ON, 60, new Color(255, 255, 255, 100), new Color(255, 255, 255, 15));
-//        dView.getCard2().setData(new ModelCard("Income", 2000, 60, icon2));
+        dView.getCard2().setData(new ModelCard("Miembros", 10, null));
 //        Icon icon3 = IconFontSwing.buildIcon(GoogleMaterialDesignIcons.SHOPPING_BASKET, 60, new Color(255, 255, 255, 100), new Color(255, 255, 255, 15));
-//        dView.getCard3().setData(new ModelCard("Expense", 3000, 80, icon3));
+        dView.getCard3().setData(new ModelCard("Ventas Del Dia", 50, null));
 //        Icon icon4 = IconFontSwing.buildIcon(GoogleMaterialDesignIcons.BUSINESS_CENTER, 60, new Color(255, 255, 255, 100), new Color(255, 255, 255, 15));
-//        dView.getCard4().setData(new ModelCard("Other Income", 550, 95, icon4));
+        dView.getCard4().setData(new ModelCard("Productos", 100, null));
     }
 }

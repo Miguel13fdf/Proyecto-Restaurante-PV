@@ -5,9 +5,9 @@ import CustomElements.SearchBar.TextFieldAnimation;
 import CustomElements.Table.Table;
 import javax.swing.JLabel;
 
-public class PersonaView extends javax.swing.JPanel {
+public class Crud_View extends javax.swing.JPanel {
 
-    public PersonaView() {
+    public Crud_View() {
         initComponents();
     }
 

@@ -53,7 +53,7 @@ public class Menu extends JPanel {
 //        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MAIL_OUTLINE, "Email", "Inbox", "Read", "Compose"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.INSERT_EMOTICON, "Clientes"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MESSAGE, "Reportes"));
-        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.INSERT_EMOTICON, "Personal"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.ACCOUNT_CIRCLE, "Personal"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.PIE_CHART_OUTLINED, "Menu"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DVR, "Reserva"));
         addTitle("Ventas");

@@ -6,7 +6,7 @@ import CustomElements.TitleBar;
 import java.awt.Component;
 import javax.swing.JPanel;
 import vista.Components.Header;
-import vista.Main.PersonaView;
+import vista.Main.Crud_View;
 
 public class MainView extends javax.swing.JFrame {
 

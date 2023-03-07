@@ -1,5 +1,6 @@
 package controlador;
 
+import javax.swing.ImageIcon;
 import modelo.ModeloPersonal;
 import vista.*;
 
@@ -14,6 +15,7 @@ public class ControlSplash {
 
     public void IniciarControl() {
         splashView.setVisible(true);
+        splashView.setIconImage(new ImageIcon(getClass().getResource("../Imagenes/LOGO_RESTAURANT_PROYECT.png")).getImage());
         splashView.setLocationRelativeTo(null);
         cargarSplash = new CargarSplash(splashView.getProgress());
         cargarSplash.start();

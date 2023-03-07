@@ -9,7 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import vista.Components.MssDialog;
-import vista.Main.PersonaView;
+import vista.Main.Crud_View;
+import vista.Main.Update_Personal;
 import vista.MainView;
 
 // NOTAS UTILES: Presiona Crlt + H para reemplazar todas las ocurrencias
@@ -18,14 +19,17 @@ public class ControlPersona {
     private ModeloPersona mPersona;
     private Validaciones validaciones = new Validaciones();
     private String criterio = "", mssDEError = "";
-    private int seleccionado = -1;
+    private int id_personal = -1;
     private List<Persona> listaPersonas;
-    private PersonaView personaView;
+    private Crud_View personaView;
+    private Update_Personal up_Pers_View;
+    // Necesario para que el messDialog calcule las dimensiones de toda la interfaz.
     private MainView mView;
 
-    public ControlPersona(ModeloPersona mPersona, PersonaView personaView, MainView mView) {
+    public ControlPersona(ModeloPersona mPersona, Crud_View personaView, Update_Personal up_Pers_View, MainView mView) {
         this.mPersona = mPersona;
         this.personaView = personaView;
+        this.up_Pers_View = up_Pers_View;
         this.mView = mView;
     }
 
@@ -36,7 +40,7 @@ public class ControlPersona {
         //<editor-fold defaultstate="collapsed" desc=" Add listeners MOUSE LISTENER.">
         personaView.getAddBtn().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Insertar();
+                AbrirPanelDialog(1);
             }
         });
         personaView.getEditBtn().addMouseListener(new java.awt.event.MouseAdapter() {
@@ -47,11 +51,6 @@ public class ControlPersona {
         personaView.getDeleteBtn().addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Eliminar();
-            }
-        });
-        personaView.getSearchBar().addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Modificar();
             }
         });
 
@@ -82,7 +81,7 @@ public class ControlPersona {
     }
     //</editor-fold>
 
-    //<editor-fold defaultstate="collapsed" desc=" Se llenaran todos los datos en la tabla.">
+    //<editor-fold defaultstate="collapsed" desc=" Mostrar resultado de la busqueda.">
     public void LlenarTablaBusqueda() {
         // Para darle forma al modelo de la tabla
         DefaultTableModel mTabla;
@@ -105,11 +104,12 @@ public class ControlPersona {
     }
     //</editor-fold>
 
+    //<editor-fold defaultstate="collapsed" desc=" Se llenaran todos los datos en la tabla.">
     public void CargarDatos() {
         // Para darle forma al modelo de la tabla
 
-        DefaultTableModel mTablaModel = (DefaultTableModel) personaView.getTable1().getModel();
-        mTablaModel.setNumRows(0);
+        DefaultTableModel mTablaModel = new DefaultTableModel(new Object[]{"ID", "Cedula", "Nombre", "Apellidos", "Correo", "Edad", "Cargo", "Foto"}, 0);
+        personaView.getTable1().setModel(mTablaModel);
 
         listaPersonas = mPersona.Listar("");
 
@@ -121,6 +121,44 @@ public class ControlPersona {
 
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(mTablaModel);
         personaView.getTable1().setRowSorter(sorter);
+    }
+    //</editor-fold>
+
+    public void AbrirPanelDialog(int opcion) {
+        if (opcion == 1) {
+            mostrarDialogoCrearPersona();
+        } else {
+            MssDialog mssDialog = new MssDialog(mView);
+            if (id_personal == -1) {
+                mssDialog.showMessage("Selecciona un elemento", "Aun no ha seleccionado una fila.", MssDialog.MssType.Error);
+                return;
+            } else {
+                mostrarDialogoEditarPersona();
+                id_personal = 0;
+            }
+        }
+    }
+//
+
+    private void mostrarDialogoCrearPersona() {
+        String titulo = "Crear Persona";
+        up_Pers_View.setName("C");
+//        limpiarDatos();
+        mostrarDialogo(titulo);
+    }
+
+    private void mostrarDialogoEditarPersona() {
+        String titulo = "Editar Persona";
+        up_Pers_View.setName("E");
+        mostrarDialogo(titulo);
+    }
+
+    private void mostrarDialogo(String titulo) {
+        // ActivarJdialog
+        up_Pers_View.setSize(900, 600);
+        up_Pers_View.setLocationRelativeTo(null);
+        up_Pers_View.setTitle(titulo);
+        up_Pers_View.setVisible(true);
     }
 
     //<editor-fold defaultstate="collapsed" desc=" Insertar Datos.">
@@ -151,14 +189,14 @@ public class ControlPersona {
     //<editor-fold defaultstate="collapsed" desc=" Modificar Datos.">
     public void Modificar() {
         MssDialog mssDialog = new MssDialog(mView);
-        if (seleccionado == -1) {
+        if (id_personal == -1) {
             mssDialog.showMessage("Selecciona un elemento", "Aun no ha seleccionado una fila.", MssDialog.MssType.Error);
             return;
         }
 
         ModeloPersona MPersona = new ModeloPersona();
         MPersona = RecuperarDatos(MPersona, true);
-        MPersona.setPer_id(listaPersonas.get(seleccionado).getPer_id());
+        MPersona.setPer_id(listaPersonas.get(id_personal).getPer_id());
 
         if (MPersona.Actualizar() == null) {
             JOptionPane.showMessageDialog(null,
@@ -176,13 +214,13 @@ public class ControlPersona {
     //<editor-fold defaultstate="collapsed" desc=" Eliminar Datos.">
     public void Eliminar() {
         MssDialog mssDialog = new MssDialog(mView);
-        if (seleccionado == -1) {
+        if (id_personal == -1) {
             mssDialog.showMessage("Selecciona un elemento", "Aun no ha seleccionado una fila.", MssDialog.MssType.Error);
         } else {
             mssDialog.showMessage("Estas seguro?", "Una vez que lo borres no podras recuperar los datos.", MssDialog.MssType.Pregunta);
             if (mssDialog.getMessageType() == MssDialog.MessageType.OK) {
                 String cedula;
-                cedula = personaView.getTable1().getValueAt(seleccionado, 0).toString();
+                cedula = personaView.getTable1().getValueAt(id_personal, 0).toString();
                 mPersona.setPer_id(Integer.parseInt(cedula));
 
                 if (mPersona.Eliminar() == null) {
@@ -281,7 +319,7 @@ public class ControlPersona {
     }
 
     private void ObtenerIDTable() {
-        seleccionado = personaView.getTable1().convertRowIndexToModel(personaView.getTable1().getSelectedRow());
+        id_personal = personaView.getTable1().convertRowIndexToModel(personaView.getTable1().getSelectedRow());
         personaView.getTable1().removeAll();
         MostrarDatos();
     }
