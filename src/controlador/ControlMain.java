@@ -1,44 +1,76 @@
 package controlador;
 
 import CustomElements.Menu.EventMenuSelected;
-import CustomElements.ModelCard;
-import java.awt.Color;
 import java.awt.Component;
-import javax.swing.Icon;
-import vista.Components.*;
 import vista.*;
 import vista.Main.*;
 
 public class ControlMain {
 
     public MainView mainView;
-    private Header header;
-    DashboardView dView = new DashboardView();
+    DashboardView dView;
 
     public ControlMain(MainView mainView) {
         this.mainView = mainView;
     }
 
     public void IniciarControl() {
-        mainView.getContentPane().setBackground(Color.black);
-        header = new Header();
-        mainView.repaint();
-        mainView.setVisible(true);
+        //<editor-fold defaultstate="collapsed" desc=" Proceso para mostrar correctamente el panel Main.">
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
 
+        // --> Necesario para que se ejecute correctamente los paneles personalizados
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                mainView.setVisible(true);
+            }
+        });
+        //</editor-fold>
+
+        dView = new DashboardView();
         mainView.getTitleBar().initJFram(mainView);
         mainView.getMenu().addEvent(new EventMenuSelected() {
             @Override
-            public void menuSelected(int index, int indexSubMenu) {
+            public void menuSelected(int index, int indexSubMenu
+            ) {
                 System.out.println(index);
-                if (index == 0 && indexSubMenu == 0) {
-//                    showForm(dView);
-                } else {
-//                    showForm(new Form_Empty(index + " " + indexSubMenu));
+                switch (index) {
+                    case 0:
+                        showForm(new DashboardView());
+                        break;
+                    case 1:
+                        showForm(new ClientesView());
+                        break;
+                    case 2:
+                        showForm(new DashboardView());
+                        break;
+                    case 3:
+                        showForm(new DashboardView());
+                        break;
+                    case 4:
+                        showForm(new DashboardView());
+                        break;
+                    default:
+                        System.out.println("No hay paginas que mostrar");
                 }
             }
-        });
+        }
+        );
         mainView.getMenu().setSelectedIndex(0, 0);
-        mainView.setTitle("Restaurant Project - MVC - M3A");
         initCardData();
     }
 

@@ -8,12 +8,9 @@ import javax.swing.JPanel;
 import vista.Main.ClientesView;
 
 public class MainView extends javax.swing.JFrame {
-
-    private static MainView main;
-
+    
     public MainView() {
         initComponents();
-        init();
     }
 
     public TitleBar getTitleBar() {
@@ -39,65 +36,7 @@ public class MainView extends javax.swing.JFrame {
     public void setMenu(Menu menu) {
         this.menu = menu;
     }
-
-    private void init() {
-        main = this;
-        titleBar.initJFram(this);
-        menu.addEvent(new EventMenuSelected() {
-            @Override
-            public void menuSelected(int index, int indexSubMenu) {
-                if (index == 0 && indexSubMenu == 0) {
-                    showForm(new ClientesView());
-                } else {
-//                    showForm(new Form_Empty(index + " " + indexSubMenu));
-                }
-            }
-        });
-        menu.setSelectedIndex(0, 0);
-    }
-
-    public void showForm(Component com) {
-        body.removeAll();
-        body.add(com);
-        body.repaint();
-        body.revalidate();
-    }
-
-    public static MainView getMain() {
-        return main;
-    }
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainView().setVisible(true);
-            }
-        });
-    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
