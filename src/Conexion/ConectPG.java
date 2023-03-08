@@ -13,9 +13,9 @@ public class ConectPG {
     Connection con;
     Statement st;
 
-    String cadenaConexion = "jdbc:postgresql://localhost:5432/Restaurant_App"; // conexion String o cadena de conexion
+    String cadenaConexion = "jdbc:postgresql://containers-us-west-50.railway.app:6315/railway"; // conexion String o cadena de conexion
     String usuarioPG = "postgres";
-    String passPG = "1234";
+    String passPG = "rkMROcWEB7EJAxEaAnuG";
 
     public ConectPG() {
         try {
