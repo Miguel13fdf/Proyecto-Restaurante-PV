@@ -1,12 +1,9 @@
 package vista;
 
-import CustomElements.Menu.EventMenuSelected;
 import CustomElements.Menu.Menu;
 import CustomElements.TitleBar;
-import java.awt.Component;
 import javax.swing.JPanel;
 import vista.Components.Header;
-import vista.Main.Crud_View;
 
 public class MainView extends javax.swing.JFrame {
 

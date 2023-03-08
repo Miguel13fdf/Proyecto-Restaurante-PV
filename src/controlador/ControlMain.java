@@ -81,8 +81,8 @@ public class ControlMain {
         //</editor-fold>
         
         mainView.getMenu().setSelectedIndex(0, 0);
-        Slide_1 slide_1 = new Slide_1();
-        slide_1.getLink_BTN().addMouseListener(new MouseAdapter() {
+        Slide_2 slide = new Slide_2();
+        slide.getLink_BTN().addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 try {
                     // Abre el enlace en el navegador predeterminado
@@ -93,7 +93,7 @@ public class ControlMain {
             }
         });
 
-        dView.getSlideshow().initSlideshow(slide_1, new Slide_1());
+        dView.getSlideshow().initSlideshow( new Slide_1(), slide);
 
         initCardData();
     }
