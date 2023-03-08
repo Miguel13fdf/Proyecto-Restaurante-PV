@@ -18,8 +18,8 @@ public class ModeloPersona extends Persona {
     // Setencias SQL
     public String LISTAR_PE = "SELECT * FROM persona"; // ORDER BY nombre_us
 
-    public String REGISTRAR = "INSERT INTO persona(codigo_us, nombre_us, sexo_us, tipo_us, pass) "
-            + "VALUES(?,?,?,?,?)";
+    public String REGISTRAR = "INSERT INTO persona(per_cedula, per_nombre, per_apellido1, per_apellido2, per_correo,per_edad) "
+            + "VALUES(?,?,?,?,?,?)";
 
     public String ACTUALIZAR = "UPDATE persona SET per_cedula=?, per_nombre=?, per_apellido1=?, per_apellido2=?, per_correo=?, per_edad=?\n"
             + "	WHERE <per_id = ?>";
@@ -61,6 +61,7 @@ public class ModeloPersona extends Persona {
                 persona.setPer_apellido1(rs.getString("per_apellido1"));
                 persona.setPer_apellido2(rs.getString("per_apellido2"));
                 persona.setPer_correo(rs.getString("per_correo"));
+                persona.setPer_Edad(rs.getInt("per_edad"));
                 lista.add(persona);
             }
         } catch (SQLException ex) {
@@ -85,6 +86,7 @@ public class ModeloPersona extends Persona {
             ps.setString(3, getPer_apellido1());
             ps.setString(4, getPer_apellido2());
             ps.setString(5, getPer_correo());
+            ps.setInt(6, getPer_Edad());
             ps.executeUpdate();
             ps.close();
             return null;
@@ -104,6 +106,7 @@ public class ModeloPersona extends Persona {
             ps.setString(3, getPer_apellido1());
             ps.setString(4, getPer_apellido2());
             ps.setString(5, getPer_correo());
+            ps.setInt(6, getPer_Edad());
             ps.executeUpdate();
             ps.close();
             return null;
