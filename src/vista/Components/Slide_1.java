@@ -29,6 +29,7 @@ public class Slide_1 extends javax.swing.JPanel {
 
         Link_BTN.setFont(new java.awt.Font("Algerian", 1, 14)); // NOI18N
         Link_BTN.setForeground(new java.awt.Color(255, 255, 255));
+        Link_BTN.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Link_BTN.setText("Visitar pagiina web");
 
         jLabel2.setFont(new java.awt.Font("Algerian", 1, 24)); // NOI18N
@@ -51,9 +52,9 @@ public class Slide_1 extends javax.swing.JPanel {
                 .addGroup(pictureBox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelTransparent1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
-                .addGap(270, 270, 270)
-                .addComponent(Link_BTN, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(215, 215, 215)
+                .addComponent(Link_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
         pictureBox1Layout.setVerticalGroup(
             pictureBox1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,10 +64,10 @@ public class Slide_1 extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(panelTransparent1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(pictureBox1Layout.createSequentialGroup()
-                .addGap(300, 300, 300)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pictureBox1Layout.createSequentialGroup()
+                .addContainerGap(300, Short.MAX_VALUE)
                 .addComponent(Link_BTN, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
