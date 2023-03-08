@@ -32,7 +32,7 @@ public class ConectPG {
     }
 
     public ResultSet consulta(String sql) {
-        System.out.println(sql);
+        System.out.println("sasaassaasa" + sql);
         try {
             st = con.createStatement();
             return st.executeQuery(sql);

@@ -5,12 +5,21 @@ import CustomElements.Menu.Menu;
 import CustomElements.TitleBar;
 import java.awt.Component;
 import javax.swing.JPanel;
-import vista.Main.ClientesView;
+import vista.Components.Header;
+import vista.Main.Crud_View;
 
 public class MainView extends javax.swing.JFrame {
-    
+
     public MainView() {
         initComponents();
+    }
+
+    public Header getHeader1() {
+        return header1;
+    }
+
+    public void setHeader1(Header header1) {
+        this.header1 = header1;
     }
 
     public TitleBar getTitleBar() {
@@ -36,7 +45,7 @@ public class MainView extends javax.swing.JFrame {
     public void setMenu(Menu menu) {
         this.menu = menu;
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -45,9 +45,6 @@ public class ModeloPersonal extends Personal {
     public ModeloPersonal() {
     }
 
-    public ModeloPersonal(int per_id, String per_ced, String per_nombre, String per_apellido1, String per_apellido2, String per_correo, int per_persona) {
-        super(per_id, per_ced, per_nombre, per_apellido1, per_apellido2, per_correo, per_persona);
-    }
 
     public List<Personal> Listar(String busca) {
         String sql = "";

@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 import modelo.ModeloPersonal;
 import vista.LoginView;
+import vista.Main.DashboardView;
 import vista.MainView;
 
 public class ControlLogin {
@@ -49,7 +50,7 @@ public class ControlLogin {
         }
 
         if (action) {
-            ControlMain cMain = new ControlMain(new MainView());
+            ControlMain cMain = new ControlMain(new MainView(), new DashboardView());
             cMain.IniciarControl();
         }
     }
