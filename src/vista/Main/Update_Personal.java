@@ -1,10 +1,145 @@
 package vista.Main;
 
+import CustomElements.ButtonCustom;
+import CustomElements.ComboBox.ComboBoxSuggestion;
+import CustomElements.NormalTextField;
+import com.toedter.calendar.JDateChooser;
+import javax.swing.JLabel;
+import javax.swing.JSpinner;
+
 public class Update_Personal extends javax.swing.JDialog {
 
     public Update_Personal(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+    }
+
+    public NormalTextField getTextF_2Apellido() {
+        return TextF_2Apellido;
+    }
+
+    public void setTextF_2Apellido(NormalTextField TextF_2Apellido) {
+        this.TextF_2Apellido = TextF_2Apellido;
+    }
+
+    public NormalTextField getTextF_Apellido() {
+        return TextF_Apellido;
+    }
+
+    public void setTextF_Apellido(NormalTextField TextF_Apellido) {
+        this.TextF_Apellido = TextF_Apellido;
+    }
+
+    public NormalTextField getTextF_Contraseña() {
+        return TextF_Contraseña;
+    }
+
+    public void setTextF_Contraseña(NormalTextField TextF_Contraseña) {
+        this.TextF_Contraseña = TextF_Contraseña;
+    }
+
+    public NormalTextField getTextF_Correo() {
+        return TextF_Correo;
+    }
+
+    public void setTextF_Correo(NormalTextField TextF_Correo) {
+        this.TextF_Correo = TextF_Correo;
+    }
+
+    public NormalTextField getTextF_Nombre() {
+        return TextF_Nombre;
+    }
+
+    public void setTextF_Nombre(NormalTextField TextF_Nombre) {
+        this.TextF_Nombre = TextF_Nombre;
+    }
+
+    public NormalTextField getTextF_Usuario() {
+        return TextF_Usuario;
+    }
+
+    public void setTextF_Usuario(NormalTextField TextF_Usuario) {
+        this.TextF_Usuario = TextF_Usuario;
+    }
+
+    public ButtonCustom getCancelBtn() {
+        return CancelBtn;
+    }
+
+    public void setCancelBtn(ButtonCustom CancelBtn) {
+        this.CancelBtn = CancelBtn;
+    }
+
+    public JLabel getID_BD() {
+        return ID_BD;
+    }
+
+    public void setID_BD(JLabel ID_BD) {
+        this.ID_BD = ID_BD;
+    }
+
+    public ButtonCustom getLimpiarDatos_Btn() {
+        return LimpiarDatos_Btn;
+    }
+
+    public void setLimpiarDatos_Btn(ButtonCustom LimpiarDatos_Btn) {
+        this.LimpiarDatos_Btn = LimpiarDatos_Btn;
+    }
+
+    public ButtonCustom getOkBtn() {
+        return OkBtn;
+    }
+
+    public void setOkBtn(ButtonCustom OkBtn) {
+        this.OkBtn = OkBtn;
+    }
+
+    public ButtonCustom getSubir_Foto_Btn() {
+        return Subir_Foto_Btn;
+    }
+
+    public void setSubir_Foto_Btn(ButtonCustom Subir_Foto_Btn) {
+        this.Subir_Foto_Btn = Subir_Foto_Btn;
+    }
+
+    public ComboBoxSuggestion getComboBox_Cargo() {
+        return comboBox_Cargo;
+    }
+
+    public void setComboBox_Cargo(ComboBoxSuggestion comboBox_Cargo) {
+        this.comboBox_Cargo = comboBox_Cargo;
+    }
+
+    public JSpinner getjSpinnerEdad() {
+        return jSpinnerEdad;
+    }
+
+    public void setjSpinnerEdad(JSpinner jSpinnerEdad) {
+        this.jSpinnerEdad = jSpinnerEdad;
+    }
+
+    public JDateChooser getJdc_HEntrada() {
+        return jdc_HEntrada;
+    }
+
+    public void setJdc_HEntrada(JDateChooser jdc_HEntrada) {
+        this.jdc_HEntrada = jdc_HEntrada;
+    }
+
+    public JDateChooser getJdc_HSalida() {
+        return jdc_HSalida;
+    }
+
+    public void setJdc_HSalida(JDateChooser jdc_HSalida) {
+        this.jdc_HSalida = jdc_HSalida;
+    }
+
+    public JLabel getLbl_foto() {
+        return lbl_foto;
+    }
+
+    public void setLbl_foto(JLabel lbl_foto) {
+        this.lbl_foto = lbl_foto;
     }
 
     @SuppressWarnings("unchecked")
@@ -13,18 +148,18 @@ public class Update_Personal extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         ID_TXT = new javax.swing.JLabel();
-        normalTextField1 = new CustomElements.NormalTextField();
-        normalTextField2 = new CustomElements.NormalTextField();
-        normalTextField3 = new CustomElements.NormalTextField();
-        normalTextField4 = new CustomElements.NormalTextField();
-        CancelBtn2 = new CustomElements.ButtonCustom();
+        TextF_Nombre = new CustomElements.NormalTextField();
+        TextF_Apellido = new CustomElements.NormalTextField();
+        TextF_2Apellido = new CustomElements.NormalTextField();
+        TextF_Correo = new CustomElements.NormalTextField();
+        CancelBtn = new CustomElements.ButtonCustom();
         OkBtn = new CustomElements.ButtonCustom();
         LimpiarDatos_Btn = new CustomElements.ButtonCustom();
         Edad_TXT = new javax.swing.JLabel();
         jSpinnerEdad = new javax.swing.JSpinner();
         ID_BD = new javax.swing.JLabel();
-        normalTextField5 = new CustomElements.NormalTextField();
-        normalTextField6 = new CustomElements.NormalTextField();
+        TextF_Usuario = new CustomElements.NormalTextField();
+        TextF_Contraseña = new CustomElements.NormalTextField();
         Cargo_TXT = new javax.swing.JLabel();
         comboBox_Cargo = new CustomElements.ComboBox.ComboBoxSuggestion();
         HEntrada_TXT = new javax.swing.JLabel();
@@ -42,28 +177,30 @@ public class Update_Personal extends javax.swing.JDialog {
         ID_TXT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ID_TXT.setText("ID:");
 
-        normalTextField1.setHelperText("Ingresa tu nombre");
-        normalTextField1.setLabelText("Nombre");
-        normalTextField1.setLineColor(new java.awt.Color(255, 153, 51));
+        TextF_Nombre.setHelperText("Ingresa tu nombre");
+        TextF_Nombre.setLabelText("Nombre");
+        TextF_Nombre.setLineColor(new java.awt.Color(255, 153, 51));
 
-        normalTextField2.setHelperText("Ingresa tu apellido");
-        normalTextField2.setLabelText("Apellido");
-        normalTextField2.setLineColor(new java.awt.Color(255, 153, 51));
+        TextF_Apellido.setHelperText("Ingresa tu apellido");
+        TextF_Apellido.setLabelText("Apellido");
+        TextF_Apellido.setLineColor(new java.awt.Color(255, 153, 51));
 
-        normalTextField3.setHelperText("Ingresa tu segundo apellido");
-        normalTextField3.setLabelText("Segundo apellido");
-        normalTextField3.setLineColor(new java.awt.Color(255, 153, 51));
+        TextF_2Apellido.setHelperText("Ingresa tu segundo apellido");
+        TextF_2Apellido.setLabelText("Segundo apellido");
+        TextF_2Apellido.setLineColor(new java.awt.Color(255, 153, 51));
 
-        normalTextField4.setHelperText("Ingresa tu correo");
-        normalTextField4.setLabelText("Correo");
-        normalTextField4.setLineColor(new java.awt.Color(255, 153, 51));
+        TextF_Correo.setHelperText("Ingresa tu correo");
+        TextF_Correo.setLabelText("Correo");
+        TextF_Correo.setLineColor(new java.awt.Color(255, 153, 51));
 
-        CancelBtn2.setBackground(new java.awt.Color(245, 71, 71));
-        CancelBtn2.setText("Cancelar");
-        CancelBtn2.setColorHover(new java.awt.Color(255, 74, 74));
-        CancelBtn2.setColorPressed(new java.awt.Color(235, 61, 61));
+        CancelBtn.setBackground(new java.awt.Color(245, 71, 71));
+        CancelBtn.setText("Cancelar");
+        CancelBtn.setColorHover(new java.awt.Color(255, 74, 74));
+        CancelBtn.setColorPressed(new java.awt.Color(235, 61, 61));
+        CancelBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        OkBtn.setText("Listo");
+        OkBtn.setText("Crear Personal");
+        OkBtn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         LimpiarDatos_Btn.setBackground(new java.awt.Color(255, 255, 255));
         LimpiarDatos_Btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Limpiar Datos.png"))); // NOI18N
@@ -76,14 +213,14 @@ public class Update_Personal extends javax.swing.JDialog {
         ID_BD.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         ID_BD.setText("123456789");
 
-        normalTextField5.setHelperText("Ingresa tu nombre usuario");
-        normalTextField5.setLabelText("Nombre usuario");
-        normalTextField5.setLineColor(new java.awt.Color(255, 153, 51));
+        TextF_Usuario.setHelperText("Ingresa tu nombre usuario");
+        TextF_Usuario.setLabelText("Nombre usuario");
+        TextF_Usuario.setLineColor(new java.awt.Color(255, 153, 51));
 
-        normalTextField6.setToolTipText("");
-        normalTextField6.setHelperText("Ingresa tu contraseña");
-        normalTextField6.setLabelText("Contraseña");
-        normalTextField6.setLineColor(new java.awt.Color(255, 153, 51));
+        TextF_Contraseña.setToolTipText("");
+        TextF_Contraseña.setHelperText("Ingresa tu contraseña");
+        TextF_Contraseña.setLabelText("Contraseña");
+        TextF_Contraseña.setLineColor(new java.awt.Color(255, 153, 51));
 
         Cargo_TXT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Cargo_TXT.setText("Cargo:");
@@ -122,19 +259,19 @@ public class Update_Personal extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(ID_BD, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(normalTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(TextF_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(normalTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(normalTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TextF_2Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(TextF_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                             .addComponent(Edad_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(jSpinnerEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(normalTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TextF_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(normalTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(normalTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TextF_Usuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(TextF_Contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(Cargo_TXT, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,7 +295,7 @@ public class Update_Personal extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(OkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(CancelBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(LimpiarDatos_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(55, 55, 55))
@@ -173,13 +310,13 @@ public class Update_Personal extends javax.swing.JDialog {
                             .addComponent(ID_TXT)
                             .addComponent(ID_BD))
                         .addGap(20, 20, 20)
-                        .addComponent(normalTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextF_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(normalTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextF_Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(normalTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextF_2Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(normalTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TextF_Correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jSpinnerEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -188,9 +325,9 @@ public class Update_Personal extends javax.swing.JDialog {
                         .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(normalTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextF_Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(normalTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TextF_Contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(comboBox_Cargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,7 +352,7 @@ public class Update_Personal extends javax.swing.JDialog {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CancelBtn2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(OkBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(LimpiarDatos_Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -236,7 +373,7 @@ public class Update_Personal extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private CustomElements.ButtonCustom CancelBtn2;
+    private CustomElements.ButtonCustom CancelBtn;
     private javax.swing.JLabel Cargo_TXT;
     private javax.swing.JLabel Edad_TXT;
     private javax.swing.JLabel Foto_De_Perfil_TXT;
@@ -247,17 +384,17 @@ public class Update_Personal extends javax.swing.JDialog {
     private CustomElements.ButtonCustom LimpiarDatos_Btn;
     private CustomElements.ButtonCustom OkBtn;
     private CustomElements.ButtonCustom Subir_Foto_Btn;
+    private CustomElements.NormalTextField TextF_2Apellido;
+    private CustomElements.NormalTextField TextF_Apellido;
+    private CustomElements.NormalTextField TextF_Contraseña;
+    private CustomElements.NormalTextField TextF_Correo;
+    private CustomElements.NormalTextField TextF_Nombre;
+    private CustomElements.NormalTextField TextF_Usuario;
     private CustomElements.ComboBox.ComboBoxSuggestion comboBox_Cargo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner jSpinnerEdad;
     private com.toedter.calendar.JDateChooser jdc_HEntrada;
     private com.toedter.calendar.JDateChooser jdc_HSalida;
     private javax.swing.JLabel lbl_foto;
-    private CustomElements.NormalTextField normalTextField1;
-    private CustomElements.NormalTextField normalTextField2;
-    private CustomElements.NormalTextField normalTextField3;
-    private CustomElements.NormalTextField normalTextField4;
-    private CustomElements.NormalTextField normalTextField5;
-    private CustomElements.NormalTextField normalTextField6;
     // End of variables declaration//GEN-END:variables
 }

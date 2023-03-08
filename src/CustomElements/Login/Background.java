@@ -1,6 +1,5 @@
 package CustomElements.Login;
 
-import CustomElements.Login.shadow.ShadowRenderer;
 import com.twelvemonkeys.image.ImageUtil;
 import java.awt.AlphaComposite;
 import java.awt.Color;
@@ -53,7 +52,7 @@ public class Background extends JComponent {
     private Component blur;
 
     public Background() {
-        image = new ImageIcon(getClass().getResource("/CustomElements/Login/Product_4.jpg"));
+        image = new ImageIcon(getClass().getResource("/Imagenes/Product_4.jpg"));
     }
 
     /**

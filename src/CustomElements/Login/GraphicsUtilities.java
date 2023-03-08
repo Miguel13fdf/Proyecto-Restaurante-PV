@@ -1,4 +1,4 @@
-package CustomElements.Login.shadow;
+package CustomElements.Login;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;

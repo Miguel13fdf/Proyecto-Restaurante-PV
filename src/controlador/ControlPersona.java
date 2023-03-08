@@ -1,5 +1,6 @@
 package controlador;
 
+import CustomElements.Menu.SystemColor;
 import CustomElements.SearchBar.*;
 import java.awt.Color;
 import modelo.*;
@@ -59,10 +60,13 @@ public class ControlPersona {
             public void onPressed(EventCallBack call) {
                 try {
                     for (int i = 1; i <= 100; i++) {
-                        personaView.getSearchBar().setText("Cargando %" + i);
+                        personaView.getjLabelSinCoincidencias().setVisible(true);
+                        personaView.getjLabelSinCoincidencias().setForeground(SystemColor.MAIN_COLOR_2);
+                        personaView.getjLabelSinCoincidencias().setText("Cargando " + i + "%");
                         Thread.sleep(6);
                     }
                     call.done();
+                    personaView.getjLabelSinCoincidencias().setVisible(false);
                     Buscar();
                 } catch (Exception e) {
                     System.err.println(e);
@@ -83,31 +87,28 @@ public class ControlPersona {
 
     //<editor-fold defaultstate="collapsed" desc=" Mostrar resultado de la busqueda.">
     public void LlenarTablaBusqueda() {
-        // Para darle forma al modelo de la tabla
-        DefaultTableModel mTabla;
-        mTabla = (DefaultTableModel) personaView.getTable1().getModel();
-        mTabla.setNumRows(0);
+
+        DefaultTableModel mTablaModel = new DefaultTableModel(new Object[]{"ID", "Cedula", "Nombre", "Apellidos", "Correo", "Edad", "Cargo", "Foto"}, 0);
+        personaView.getTable1().setModel(mTablaModel);
 
         listaPersonas = mPersona.Listar(criterio);
-        // Uso de una expresion landa
 
         if (!listaPersonas.isEmpty()) {
             listaPersonas.stream().forEach(pe -> {
-                String[] filaNueva = {String.valueOf(pe.getPer_id()), pe.getPer_ced(), pe.getPer_nombre(), pe.getPer_apellido1(),
-                    pe.getPer_apellido2(), pe.getPer_correo()};
-                mTabla.addRow(filaNueva);
+                String[] filaNueva = {String.valueOf(pe.getPer_id()), pe.getPer_ced(), pe.getPer_nombre(),
+                    pe.getPer_apellido1() + pe.getPer_apellido2(), pe.getPer_correo(), String.valueOf(pe.getPer_Edad())};
+                mTablaModel.addRow(filaNueva);
             });
         } else {
+            personaView.getjLabelSinCoincidencias().setForeground(Color.RED);
+            personaView.getjLabelSinCoincidencias().setText("No hay coincidencias");
             personaView.getjLabelSinCoincidencias().setVisible(true);
         }
-
     }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Se llenaran todos los datos en la tabla.">
     public void CargarDatos() {
-        // Para darle forma al modelo de la tabla
-
         DefaultTableModel mTablaModel = new DefaultTableModel(new Object[]{"ID", "Cedula", "Nombre", "Apellidos", "Correo", "Edad", "Cargo", "Foto"}, 0);
         personaView.getTable1().setModel(mTablaModel);
 
@@ -118,13 +119,12 @@ public class ControlPersona {
                 pe.getPer_apellido1() + pe.getPer_apellido2(), pe.getPer_correo(), String.valueOf(pe.getPer_Edad())};
             mTablaModel.addRow(filaNueva);
         });
-
-        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(mTablaModel);
-        personaView.getTable1().setRowSorter(sorter);
     }
     //</editor-fold>
 
-    public void AbrirPanelDialog(int opcion) {
+    //<editor-fold defaultstate="collapsed" desc=" Mostrar Panel y ajustes del mismo.">
+    private void AbrirPanelDialog(int opcion) {
+        up_Pers_View.getCancelBtn().addActionListener(l -> cancelar());
         if (opcion == 1) {
             mostrarDialogoCrearPersona();
         } else {
@@ -160,6 +160,12 @@ public class ControlPersona {
         up_Pers_View.setTitle(titulo);
         up_Pers_View.setVisible(true);
     }
+
+    private void cancelar() {
+        up_Pers_View.dispose();
+        id_personal = -1;
+    }
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc=" Insertar Datos.">
     public void Insertar() {

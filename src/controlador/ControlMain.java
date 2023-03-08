@@ -3,15 +3,21 @@ package controlador;
 import CustomElements.Menu.EventMenuSelected;
 import CustomElements.ModelCard;
 import java.awt.Component;
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.net.URI;
 import javax.swing.ImageIcon;
 import modelo.ModeloPersona;
 import vista.*;
+import vista.Components.*;
 import vista.Main.*;
 
 public class ControlMain {
 
     public MainView mainView;
     DashboardView dView;
+    String enlacePaginaWeb = "https://www.cupcakesandbreakfast.com/";
 
     public ControlMain(MainView mainView, DashboardView dView) {
         this.mainView = mainView;
@@ -25,6 +31,7 @@ public class ControlMain {
         dView = new DashboardView();
         mainView.getTitleBar().initJFram(mainView);
 
+        //<editor-fold defaultstate="collapsed" desc=" Darle acción a los botones del menu.">
         mainView.getMenu().addEvent(new EventMenuSelected() {
             @Override
             public void menuSelected(int index, int indexSubMenu
@@ -45,7 +52,7 @@ public class ControlMain {
                     case 3:
                         Crud_View crud_View = new Crud_View();
                         showForm(crud_View);
-                        ControlPersona cPersona = new ControlPersona(new ModeloPersona(), crud_View, new Update_Personal(mainView, true),mainView);
+                        ControlPersona cPersona = new ControlPersona(new ModeloPersona(), crud_View, new Update_Personal(mainView, true), mainView);
                         cPersona.iniciarControl();
                         mainView.getHeader1().getTitleTXT().setText("Personal");
                         break;
@@ -71,7 +78,22 @@ public class ControlMain {
             }
         }
         );
+        //</editor-fold>
+        
         mainView.getMenu().setSelectedIndex(0, 0);
+        Slide_1 slide_1 = new Slide_1();
+        slide_1.getLink_BTN().addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                try {
+                    // Abre el enlace en el navegador predeterminado
+                    Desktop.getDesktop().browse(new URI(enlacePaginaWeb));
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+        dView.getSlideshow().initSlideshow(slide_1, new Slide_1());
 
         initCardData();
     }

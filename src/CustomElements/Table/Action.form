@@ -39,14 +39,14 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="CustomElements.Menu.Button" name="EditBtn">
+    <Component class="CustomElements.Menu.CircleButton" name="EditBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagenes/edit.png"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="CustomElements.Menu.Button" name="DeleteBtn">
+    <Component class="CustomElements.Menu.CircleButton" name="DeleteBtn">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Imagenes/delete.png"/>

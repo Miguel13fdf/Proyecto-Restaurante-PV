@@ -53,23 +53,23 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Component id="ID_BD" alignment="1" min="-2" pref="185" max="-2" attributes="0"/>
-                                          <Component id="normalTextField1" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="TextF_Nombre" alignment="1" min="-2" pref="220" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="normalTextField3" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                          <Component id="normalTextField4" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="TextF_2Apellido" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="TextF_Correo" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="Edad_TXT" min="-2" pref="68" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jSpinnerEdad" min="-2" pref="146" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="normalTextField2" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                      <Component id="TextF_Apellido" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="normalTextField5" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="normalTextField6" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="TextF_Usuario" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="TextF_Contraseña" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="Cargo_TXT" min="-2" pref="66" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -102,7 +102,7 @@
                       <Group type="102" attributes="0">
                           <Component id="OkBtn" min="-2" pref="200" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="CancelBtn2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="CancelBtn" min="-2" pref="200" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="LimpiarDatos_Btn" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -122,13 +122,13 @@
                               <Component id="ID_BD" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="normalTextField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextF_Nombre" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="normalTextField2" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextF_Apellido" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="normalTextField3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextF_2Apellido" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="normalTextField4" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextF_Correo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jSpinnerEdad" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
@@ -139,9 +139,9 @@
                           <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="normalTextField5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextF_Usuario" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="normalTextField6" min="-2" max="-2" attributes="0"/>
+                                  <Component id="TextF_Contraseña" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="comboBox_Cargo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -175,7 +175,7 @@
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CancelBtn2" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="CancelBtn" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                           <Component id="OkBtn" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                       <Component id="LimpiarDatos_Btn" min="-2" pref="62" max="-2" attributes="0"/>
@@ -194,7 +194,7 @@
             <Property name="text" type="java.lang.String" value="ID:"/>
           </Properties>
         </Component>
-        <Component class="CustomElements.NormalTextField" name="normalTextField1">
+        <Component class="CustomElements.NormalTextField" name="TextF_Nombre">
           <Properties>
             <Property name="helperText" type="java.lang.String" value="Ingresa tu nombre"/>
             <Property name="labelText" type="java.lang.String" value="Nombre"/>
@@ -203,7 +203,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="CustomElements.NormalTextField" name="normalTextField2">
+        <Component class="CustomElements.NormalTextField" name="TextF_Apellido">
           <Properties>
             <Property name="helperText" type="java.lang.String" value="Ingresa tu apellido"/>
             <Property name="labelText" type="java.lang.String" value="Apellido"/>
@@ -212,7 +212,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="CustomElements.NormalTextField" name="normalTextField3">
+        <Component class="CustomElements.NormalTextField" name="TextF_2Apellido">
           <Properties>
             <Property name="helperText" type="java.lang.String" value="Ingresa tu segundo apellido"/>
             <Property name="labelText" type="java.lang.String" value="Segundo apellido"/>
@@ -221,7 +221,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="CustomElements.NormalTextField" name="normalTextField4">
+        <Component class="CustomElements.NormalTextField" name="TextF_Correo">
           <Properties>
             <Property name="helperText" type="java.lang.String" value="Ingresa tu correo"/>
             <Property name="labelText" type="java.lang.String" value="Correo"/>
@@ -230,7 +230,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="CustomElements.ButtonCustom" name="CancelBtn2">
+        <Component class="CustomElements.ButtonCustom" name="CancelBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="47" green="47" red="f5" type="rgb"/>
@@ -242,11 +242,17 @@
             <Property name="colorPressed" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="3d" green="3d" red="eb" type="rgb"/>
             </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="CustomElements.ButtonCustom" name="OkBtn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Listo"/>
+            <Property name="text" type="java.lang.String" value="Crear Personal"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="CustomElements.ButtonCustom" name="LimpiarDatos_Btn">
@@ -283,7 +289,7 @@
             <Property name="text" type="java.lang.String" value="123456789"/>
           </Properties>
         </Component>
-        <Component class="CustomElements.NormalTextField" name="normalTextField5">
+        <Component class="CustomElements.NormalTextField" name="TextF_Usuario">
           <Properties>
             <Property name="helperText" type="java.lang.String" value="Ingresa tu nombre usuario"/>
             <Property name="labelText" type="java.lang.String" value="Nombre usuario"/>
@@ -292,7 +298,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="CustomElements.NormalTextField" name="normalTextField6">
+        <Component class="CustomElements.NormalTextField" name="TextF_Contrase&#xf1;a">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="helperText" type="java.lang.String" value="Ingresa tu contrase&#xf1;a"/>

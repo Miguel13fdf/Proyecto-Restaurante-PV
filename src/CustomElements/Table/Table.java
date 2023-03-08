@@ -31,7 +31,7 @@ public class Table extends JTable {
                 com.setBackground(Color.WHITE);
                 setBorder(noFocusBorder);
                 if (selected) {
-                    com.setForeground(SystemColor.MAIN_COLOR_1);
+                    com.setForeground(new Color(123, 18, 204));
                 } else {
                     com.setForeground(new Color(102, 102, 102));
                 }

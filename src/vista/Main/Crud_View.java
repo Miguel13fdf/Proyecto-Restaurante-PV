@@ -1,6 +1,6 @@
 package vista.Main;
 
-import CustomElements.Menu.Button;
+import CustomElements.Menu.CircleButton;
 import CustomElements.SearchBar.TextFieldAnimation;
 import CustomElements.Table.Table;
 import javax.swing.JLabel;
@@ -11,35 +11,35 @@ public class Crud_View extends javax.swing.JPanel {
         initComponents();
     }
 
-    public Button getImprimirBtn() {
+    public CircleButton getImprimirBtn() {
         return ImprimirBtn;
     }
 
-    public void setImprimirBtn(Button ImprimirBtn) {
+    public void setImprimirBtn(CircleButton ImprimirBtn) {
         this.ImprimirBtn = ImprimirBtn;
     }
 
-    public Button getAddBtn() {
+    public CircleButton getAddBtn() {
         return AddBtn;
     }
 
-    public void setAddBtn(Button AddBtn) {
+    public void setAddBtn(CircleButton AddBtn) {
         this.AddBtn = AddBtn;
     }
 
-    public Button getDeleteBtn() {
+    public CircleButton getDeleteBtn() {
         return DeleteBtn;
     }
 
-    public void setDeleteBtn(Button DeleteBtn) {
+    public void setDeleteBtn(CircleButton DeleteBtn) {
         this.DeleteBtn = DeleteBtn;
     }
 
-    public Button getEditBtn() {
+    public CircleButton getEditBtn() {
         return EditBtn;
     }
 
-    public void setEditBtn(Button EditBtn) {
+    public void setEditBtn(CircleButton EditBtn) {
         this.EditBtn = EditBtn;
     }
 
@@ -82,10 +82,10 @@ public class Crud_View extends javax.swing.JPanel {
         SearchBar = new CustomElements.SearchBar.TextFieldAnimation();
         SubTitleTxt = new javax.swing.JLabel();
         jLabelSinCoincidencias = new javax.swing.JLabel();
-        AddBtn = new CustomElements.Menu.Button();
-        EditBtn = new CustomElements.Menu.Button();
-        DeleteBtn = new CustomElements.Menu.Button();
-        ImprimirBtn = new CustomElements.Menu.Button();
+        AddBtn = new CustomElements.Menu.CircleButton();
+        EditBtn = new CustomElements.Menu.CircleButton();
+        DeleteBtn = new CustomElements.Menu.CircleButton();
+        ImprimirBtn = new CustomElements.Menu.CircleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table1 = new CustomElements.Table.Table();
 
@@ -99,7 +99,9 @@ public class Crud_View extends javax.swing.JPanel {
         SubTitleTxt.setText("Registro De Personas");
         SubTitleTxt.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 10, 1, 1));
 
+        jLabelSinCoincidencias.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelSinCoincidencias.setForeground(new java.awt.Color(204, 0, 0));
+        jLabelSinCoincidencias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelSinCoincidencias.setText("No hay coincidencias");
 
         AddBtn.setBackground(new java.awt.Color(102, 102, 102));
@@ -139,6 +141,12 @@ public class Crud_View extends javax.swing.JPanel {
                 "ID", "Cedula", "Nombre", "Apellidos", "Correo", "Edad"
             }
         ));
+        table1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        table1.setGridColor(new java.awt.Color(91, 0, 255));
+        table1.setSelectionBackground(new java.awt.Color(255, 153, 0));
+        table1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        table1.setShowGrid(false);
+        table1.setShowHorizontalLines(true);
         jScrollPane1.setViewportView(table1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -151,27 +159,25 @@ public class Crud_View extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1137, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ImprimirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(SubTitleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(SearchBar, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(DeleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ImprimirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SubTitleTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(36, 36, 36)
-                    .addComponent(jLabelSinCoincidencias, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(873, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,25 +191,22 @@ public class Crud_View extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelSinCoincidencias)
+                .addGap(2, 2, 2)
                 .addComponent(SubTitleTxt)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(51, 51, 51)
-                    .addComponent(jLabelSinCoincidencias)
-                    .addContainerGap(509, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private CustomElements.Menu.Button AddBtn;
-    private CustomElements.Menu.Button DeleteBtn;
-    private CustomElements.Menu.Button EditBtn;
-    private CustomElements.Menu.Button ImprimirBtn;
+    private CustomElements.Menu.CircleButton AddBtn;
+    private CustomElements.Menu.CircleButton DeleteBtn;
+    private CustomElements.Menu.CircleButton EditBtn;
+    private CustomElements.Menu.CircleButton ImprimirBtn;
     private CustomElements.SearchBar.TextFieldAnimation SearchBar;
     private javax.swing.JLabel SubTitleTxt;
     private javax.swing.JLabel jLabelSinCoincidencias;

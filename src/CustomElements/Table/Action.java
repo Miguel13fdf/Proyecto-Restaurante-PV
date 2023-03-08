@@ -1,24 +1,24 @@
 package CustomElements.Table;
 
-import CustomElements.Menu.Button;
+import CustomElements.Menu.CircleButton;
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Action extends javax.swing.JPanel {
 
-    public Button getDeleteBtn() {
+    public CircleButton getDeleteBtn() {
         return DeleteBtn;
     }
 
-    public void setDeleteBtn(Button DeleteBtn) {
+    public void setDeleteBtn(CircleButton DeleteBtn) {
         this.DeleteBtn = DeleteBtn;
     }
 
-    public Button getEditBtn() {
+    public CircleButton getEditBtn() {
         return EditBtn;
     }
 
-    public void setEditBtn(Button EditBtn) {
+    public void setEditBtn(CircleButton EditBtn) {
         this.EditBtn = EditBtn;
     }
 
@@ -33,8 +33,8 @@ public class Action extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        EditBtn = new CustomElements.Menu.Button();
-        DeleteBtn = new CustomElements.Menu.Button();
+        EditBtn = new CustomElements.Menu.CircleButton();
+        DeleteBtn = new CustomElements.Menu.CircleButton();
 
         EditBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit.png"))); // NOI18N
 
@@ -63,7 +63,7 @@ public class Action extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private CustomElements.Menu.Button DeleteBtn;
-    private CustomElements.Menu.Button EditBtn;
+    private CustomElements.Menu.CircleButton DeleteBtn;
+    private CustomElements.Menu.CircleButton EditBtn;
     // End of variables declaration//GEN-END:variables
 }

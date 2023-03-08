@@ -58,7 +58,9 @@ public class Menu extends JPanel {
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DVR, "Reserva"));
         addTitle("Ventas");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.DIRECTIONS_BIKE, "Pedidos"));
+        addTitle("Otros");
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.MESSAGE, "Acerca de"));
+        addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.SETTINGS, "Ajustes", "Editar Perfil", "Data Base Settings", "Ajustes De la Aplicación"));
         addMenuItem(new ModelMenuItem(GoogleMaterialDesignIcon.LOCK_OUTLINE, "Cerrar Sesion"));
     }
 
